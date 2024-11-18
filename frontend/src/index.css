@@ -1,0 +1,95 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.product-image {
+  max-width: 400px;
+  width:100%;
+}
+
+.rating span {
+  color: #ffc000;
+}
+
+img.card-img-top {
+ width: 100%; 
+  height: 300px; 
+  object-fit: cover;
+}
+
+img.large{
+  max-width: 100%;
+  }
+
+img.thumbnail {
+  height: 80px;
+}
+
+.small-container{
+  max-width: 600px;
+}
+
+.checkout-steps > div {
+  border-bottom: 0.2rem solid #a0a0a0;
+  color: #a0a0a0;
+}
+
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid #f08000;
+  color: #f08000;
+}
+
+.dropdown-menu [data-bs-popper]{
+  left: auto;
+  right: o;
+}
+
+/* header */
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+a.header-link,
+.header-link>a {
+border: 1px rgb(33,37,41) solid;
+border-radius: 2px;
+color: white !important;
+font-weight: bold;
+}
+
+a.header-link:hover,
+.header-link>a:hover {
+color: white;
+border:1px white solid;
+}
+
+ 
+
+.header .dropdown-menu,
+.header .dropdown-item{
+  color: black !important;
+  background-color: white;
+}
+
+.header .dropdown-item a:hover{
+  border: 1px rgb(33, 37, 41) solid;
+}
+
+.sub-header{
+  background-color: #232f3e;
+}
+
+.cart-badge{
+  position: absolute;
+  color: #f08000;
+  font-weight: bold;
+  margin-left: 16px;
+  margin-top: -3px;
+}

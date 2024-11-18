@@ -1,0 +1,14 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "1. create typeScript React App with vite\r 2. create git repository and connect vs to github\r 3. list Products\r    1. create product types\r    2. create products array\r    3. add product images\r    4. render product \r 4. import Bootstrap\r 5. create Navbar with Bootstrap\r 6. add page routing system and add pages and component",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && npm run build && cd ../frontend && npm install && npm run build",
+    "start": "TG_ALLOW_MIXED=ALLOW node backend/dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
