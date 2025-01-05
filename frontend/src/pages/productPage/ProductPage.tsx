@@ -13,15 +13,14 @@ import { Store } from "../../Store";
 import { toast } from "react-toastify";
 
 const ProductPage = () => {
-  const params = useParams()
-  const {slug} = params
+  // const params = useParams()
+  // const {slug} = params
 
-const {
-  data:product,
-  // refetch,
-  isLoading,
-  error
-} = useGetProductDetailsBySlugQuery(slug!)
+  //or : 
+
+  const {slug}= useParams<{slug:string}>()
+
+const {data:product,isLoading,error} = useGetProductDetailsBySlugQuery(slug!)
 //====================================================================
  const {state, dispatch} = useContext(Store)
     const {cart} = state;
@@ -39,7 +38,7 @@ const {
             type: 'CART_ADD_ITEM',
             payload: {...convertProductToCartItem(product!), quantity}
         })
-        toast.success('Item added to the cart')
+        toast.success('Item added to the cart successfully')
         navigate('/cart')
     }
 
@@ -47,15 +46,17 @@ const {
 
   return isLoading ? (
     <LoadingBox/>
-  ): error? (
+  ): error ? (
     <MessageBox variant="danger">{getError(error as unknown as ApiError)}</MessageBox> 
   ): (
     <div>
-     
     <Row>
+{/*  product image */}
       <Col md={6}>
         <img src={product!.image} alt={product!.name} className="large"/>
       </Col>
+
+{/* product info */}
       <Col md={3}>
      <ListGroup variant="flush">
        <ListGroup.Item>
@@ -76,9 +77,9 @@ const {
          Description: {product!.description}
        </ListGroup.Item>
       </ListGroup>
-      
-    <title>{product!.name}</title>
       </Col>
+
+{/* order box */}
       <Col md={3}>
      <Card>
       <Card.Body>
@@ -99,6 +100,8 @@ const {
               )}
               </Col>
             </Row>
+
+
           </ListGroup.Item>
           {product?.countInStock !== undefined && product.countInStock>0 &&(
             <ListGroup.Item>
@@ -118,3 +121,11 @@ const {
 }
 
 export default ProductPage
+
+
+
+
+
+
+
+

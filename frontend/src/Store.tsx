@@ -1,11 +1,10 @@
 import React from "react";
 import { Cart, CartItem, ShippingAddress } from "./types/Cart";
-import { User } from "./types/User";
-
+import { UserInfo } from "./types/User";
 type AppState = {
-     mode: 'dark' | 'light';
+     mode: string;
      cart: Cart;
-     userInfo?: User;
+     userInfo?: UserInfo;
 }
 
 const initialState: AppState = {
@@ -13,13 +12,15 @@ const initialState: AppState = {
     ? JSON.parse(localStorage.getItem('userInfo')!)
     : null,
 
-    mode: localStorage.getItem('mode')
+    mode: localStorage.getItem('mode')     // for the dark mode and light mode.
     ? (localStorage.getItem('mode') as 'dark' | 'light') 
     : window.matchMedia && 
-    window.matchMedia('(prefers-color-scheme: light)').matches
+    window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light',
-    cart: {
+
+
+    cart: {   //for the cart items.
         cartItems: localStorage.getItem('cartItems')
         ? JSON.parse(localStorage.getItem('cartItems')!)
         : [],
@@ -42,7 +43,7 @@ type Action =
 |{type: 'CART_ADD_ITEM'; payload:CartItem}
 |{type: 'CART_REMOVE_ITEM'; payload:CartItem}
 |{type: 'CART_CLEAR'}
-|{type: 'USER_SIGNIN'; payload:User}
+|{type: 'USER_SIGNIN'; payload:UserInfo}
 |{type: 'USER_SIGNOUT'}
 |{type: 'SAVE_SHIPPING_ADDRESS'; payload:ShippingAddress}
 |{type: 'SAVE_PAYMENT_METHOD'; payload:string}
@@ -50,8 +51,8 @@ type Action =
 function reducer (state:AppState , action:Action) : AppState{
     switch (action.type) {
         case 'SWITCH_MODE':
-            localStorage.setItem('mode', state.mode === 'dark' ? 'light' : 'dark');  //to keep the mode in the local storage.
-            return {...state, mode: state.mode === 'dark' ? 'light' : 'dark' }
+            localStorage.setItem('mode', state.mode === 'dark' ? 'light' : 'dark');  // Save the new mode in localStorage.
+            return {...state, mode: state.mode === 'dark' ? 'light' : 'dark' } // Return the updated state with toggled mode 
 
         case 'CART_ADD_ITEM':
             const newItem = action.payload;
@@ -125,7 +126,7 @@ const defaultDispatch : React.Dispatch<Action> =() => initialState;
 
 const Store =React.createContext({
     state: initialState,
-    dispatch: defaultDispatch
+    dispatch: defaultDispatch  // Placeholder dispatch function
 });
 
 function StoreProvider(props: React.PropsWithChildren<{}>) {
@@ -138,3 +139,11 @@ function StoreProvider(props: React.PropsWithChildren<{}>) {
     }
 
     export { Store, StoreProvider }
+
+
+
+
+
+
+ 
+

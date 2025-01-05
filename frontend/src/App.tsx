@@ -6,7 +6,7 @@ import Layout from "./component/Layot/Layout";
 import { Container } from "react-bootstrap";
 import ProductPage from "./pages/productPage/ProductPage";
 import { ToastContainer} from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';  
+import 'react-toastify/dist/ReactToastify.css';  
 import CartPage from "./pages/cartPage/CartPage";
 import SigninPage from "./pages/signinPage/SigninPage";
 import SignupPage from "./pages/signupPage/SignupPage";
@@ -25,7 +25,7 @@ function App() {
   return (
     <Layout>
       <ToastContainer position='bottom-center' limit={1}/>
-        <Container>
+        <Container className="mt-5">
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/product/:slug" element={<ProductPage />} />
@@ -48,3 +48,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

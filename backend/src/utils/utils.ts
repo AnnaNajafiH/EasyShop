@@ -18,6 +18,7 @@ export const generateToken = (user: User) => {
 
 }
 
+
 //====================================================================
 
 export const isAuth = (req: Request, res: Response, next: NextFunction) => {

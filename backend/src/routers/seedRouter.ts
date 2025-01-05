@@ -24,6 +24,9 @@ seedRouter.get('/',
 
 
 
+
+
+
 //you can use this as well to seed the data without deleting the existing data:
 // seedRouter.get('/', async (req: Request, res: Response) => {
 //     try {

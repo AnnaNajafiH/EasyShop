@@ -11,6 +11,7 @@ import { StoreProvider } from './Store.tsx'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
 <StrictMode>
@@ -28,3 +29,6 @@ createRoot(document.getElementById('root')!).render(
   </StoreProvider>
 </StrictMode>,
 )
+
+
+

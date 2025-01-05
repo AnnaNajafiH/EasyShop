@@ -46,7 +46,7 @@ img.thumbnail {
 
 .dropdown-menu [data-bs-popper]{
   left: auto;
-  right: o;
+  right: 0;
 }
 
 /* header */
@@ -92,4 +92,10 @@ border:1px white solid;
   font-weight: bold;
   margin-left: 16px;
   margin-top: -3px;
+}
+
+.btn-primary,
+.btn-outline-primary {
+  background-color: #f0c040;
+  color: #000000;
 }

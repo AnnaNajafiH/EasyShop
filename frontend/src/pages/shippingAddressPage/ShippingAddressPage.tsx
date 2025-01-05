@@ -13,7 +13,7 @@ export default function ShippingAddressPage (){
     const {state, dispatch} = useContext(Store);
 
     const {
-        userInfo,
+        userInfo,  //we need it to check if the user is logged in
         cart: {shippingAddress},
     } = state;
     useEffect(()=>{
@@ -106,3 +106,10 @@ export default function ShippingAddressPage (){
 
 
     }
+
+
+
+
+
+
+

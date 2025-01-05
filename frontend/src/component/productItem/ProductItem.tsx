@@ -12,9 +12,7 @@ import { toast } from 'react-toastify';
 
 const ProductItem = ({product} : {product:Product}) => {
     const {state, dispatch} = useContext(Store)
-    const {
-        cart: {cartItems}
-    } = state;
+    const {cart: {cartItems}} = state;
 
     const addToCartHandler = (item: CartItem) => {
         const existItem = cartItems.find((x) => x._id === item._id);
@@ -45,7 +43,10 @@ const ProductItem = ({product} : {product:Product}) => {
             <Card.Text as='h3'>
                 ${product.price}
             </Card.Text>
-            <Rating rating={product.rating} numReviews={product.numReviews}/>
+            <Rating 
+            rating={product.rating} 
+            numReviews={product.numReviews}
+            />
             {product.countInStock > 0 ? (
                 <Button variant='primary' onClick={()=>addToCartHandler(convertProductToCartItem(product))}>Add to Cart
                 </Button>
@@ -58,3 +59,6 @@ const ProductItem = ({product} : {product:Product}) => {
 }
 
 export default ProductItem
+
+
+

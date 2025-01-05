@@ -30,6 +30,8 @@ orderRouter.get (     //api/orders/:id
     })
 )
 
+
+
 orderRouter.post(
     '/',
     isAuth,
@@ -41,20 +43,24 @@ orderRouter.post(
                 orderItems: req.body.orderItems.map((x:Product)=>({
                     ...x,
                     product: x._id,
-                })),
+                })), //this is used to convert Product objects into OrderItem objects while adding or transforming specific properties. 
+
                 shippingAddress: req.body.shippingAddress,
                 paymentMethod: req.body.paymentMethod,
                 itemPrice: req.body.itemPrice,
                 shippingPrice: req.body.shippingPrice,
                 taxPrice: req.body.taxPrice,
                 totalPrice: req.body.totalPrice,
-                user: req.user._id,
+                user: req.user._id,    //this is comming from isAuth middleware
             });
             res.status(201).send({message: 'New Order Created', order: createOrder});
         }
 
     })
 )
+
+
+
 
 orderRouter.put(
     '/:id/pay',
@@ -77,3 +83,15 @@ orderRouter.put(
         }
     })
 )
+
+
+
+
+
+
+
+
+
+
+
+

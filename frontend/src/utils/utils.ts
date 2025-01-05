@@ -20,3 +20,13 @@ export const convertProductToCartItem = (product: Product): CartItem => {
     };
     return cartItem;
 }
+
+
+
+
+
+
+
+
+
+

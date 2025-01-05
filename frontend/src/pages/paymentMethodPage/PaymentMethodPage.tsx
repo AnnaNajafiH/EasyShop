@@ -90,6 +90,4 @@ export default function PaymentMethodPage (){
             </div>
         </div>
     )
-    
-
 }

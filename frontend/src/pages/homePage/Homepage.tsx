@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Product } from '../../types/Product';
 import LoadingBox from "../../component/loadingBox/LoadingBox";
 import MessageBox from "../../component/messageBox/MessageBox";
@@ -21,17 +21,20 @@ function Homepage() {
         <MessageBox variant="danger">{getError(error as unknown as ApiError)}</MessageBox>
       ) : (
     <div> 
-          <Row>
+        <Container>
             <Helmet>
               <title>Easy Shop</title>
             </Helmet>
-      {products!.map((product:Product) => (
-      <Col key={product.slug} sm={6} md={4} lg={3}>
-        <ProductItem product={product}/>
-      </Col>
+          <h1 className="pb-4">our products:</h1>
+          <Row>
+            {products!.map((product:Product) => (
+            <Col key={product.slug} sm={6} md={4} lg={3}>
+              <ProductItem product={product}/>
+            </Col>
     )
     )}
-    </Row> 
+       </Row> 
+        </Container>
     </div>
       )
   )

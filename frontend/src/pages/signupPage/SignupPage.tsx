@@ -40,15 +40,15 @@ const submitHandler=async(e: React.SyntheticEvent)=>{
     e.preventDefault();
     if(password !== confirmPassword){
         toast.error("Password do not match");
-        return;
+        return;   //return here means that the function will stop executing here
     }
     try{
-        const data=await signup({
+        const data=await signup({    //signup is the function that we have created above in useSignupMutation
             name,
             email,
             password
         });
-        dispatch({type: 'USER_SIGNIN', payload: data});
+        dispatch({type: 'USER_SIGNIN', payload: data});  //because we have to directly sign in the user after signing up
         localStorage.setItem('userInfo', JSON.stringify(data));
         navigate(redirect || '/');
     }catch(err){

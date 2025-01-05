@@ -25,6 +25,7 @@ export default function SigninPage() {
     const {userInfo} = state;
 
     const {mutateAsync: signin, isLoading}= useSigninMutation()
+    //o	mutateAsync is renamed to signin and when we call it mutationFn is called.
 
     const submitHandler = async (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -85,4 +86,5 @@ export default function SigninPage() {
         </Container>
     )
     }
+
 
