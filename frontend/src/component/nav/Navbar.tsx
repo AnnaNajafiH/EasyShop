@@ -1,12 +1,12 @@
-import { Container, Nav, Navbar as BootstrapNavbar, Button, Badge, NavDropdown} from 'react-bootstrap';
-import React, { useEffect } from 'react';
+import { Nav, Navbar as BootstrapNavbar, NavDropdown} from 'react-bootstrap';
+import { useEffect } from 'react';
 import { Store } from '../../Store';
 import { NavbarCollapse } from 'react-bootstrap';
 import { useContext } from 'react';
 import { LinkContainer} from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import SearchBox from '../SearchBox/SearchBox';
-
+import './Navbar.css';
 
 
 function Navbar() {
@@ -32,11 +32,12 @@ function Navbar() {
     localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   }
+
   
     return (
     <div>
       <BootstrapNavbar 
-      className='d-flex flex-column align-items-stretch p-2 pb-0 mb-3 '
+      className='navbar-custom d-flex flex-column align-items-stretch p-2 pb-0 mb-3 '
       bg='dark'
       variant='dark'
       expand='lg'
@@ -44,8 +45,8 @@ function Navbar() {
 
         <div className='d-flex justify-content-between align-items-center'>
           <LinkContainer to='/' className='header-link'>
-            <BootstrapNavbar.Brand >
-               EasyShop
+          <BootstrapNavbar.Brand className={mode === 'light' ? 'text-dark' : 'text-light'}>
+              EliShop
             </BootstrapNavbar.Brand>
           </LinkContainer>
 
@@ -55,7 +56,7 @@ function Navbar() {
             <Nav className="w-100 justify-content-end">
               <Link 
               to='#'
-              className='nav-link header-link'
+              className='nav-link header-link theme-toggle'
               onClick={switchModeHandler}>
                 <i className={mode=== 'light' ? 'fa fa-sun' : 'fa fa-moon'}></i>{' '}
                 {mode=== 'light' ? 'Light' : 'Dark'}
@@ -113,17 +114,18 @@ function Navbar() {
               </Nav>
           </NavbarCollapse>
         </div>
-        <div className='sub-header'>
-          <div className='d-flex'>
-            <Link to='#' className='nav-link header-link p-1'>
+        <div className='sub-header d-flex justify-content-between align-items-center py-1 px-3'
+          >
+          <div className='d-flex '>
+            <Link to='#' className='nav-link header-link'>
             <i className='fas fa-bars'>All</i>
             </Link>
-              {['Todays Deal', 'Gifts', 'On Sale'].map((x)=>(
+              {['Vase', 'Painting', 'On Sale'].map((category)=>(
                 <Link 
-                key={x}
+                key={category}
                 className='nav-link header-link p-1 px-3'
-                to={`/search?tag=${x}`}>
-                  {x}
+                to={`/search?tag=${category}`}>
+                  {category}
                 </Link>
               ))}
           </div>
@@ -134,6 +136,9 @@ function Navbar() {
 }
 
 export default Navbar
+
+
+
 
 
 

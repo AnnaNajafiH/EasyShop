@@ -1,0 +1,74 @@
+Navbar Custom Styles
+.navbar-custom {
+  padding: 2rem;
+  margin: 10px;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.navbar-brand {
+  font-family:  'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.theme-toggle i {
+  margin-right: 0.5rem;
+}
+
+.cart-link .cart-badge {
+  background-color: #ff0000;
+  color: white;
+  font-size: 0.8rem;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 50%;
+  padding: 5px 10px;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+a.header-link,
+.header-link>a {
+color: white !important;
+font-weight: bold;
+}
+
+a.header-link:hover,
+.header-link>a:hover {
+color: white;
+border:1px white solid;
+}
+
+ 
+
+.header .dropdown-menu,
+.header .dropdown-item{
+  color: black !important;
+  background-color: white;
+}
+
+.dropdown-menu [data-bs-popper]{
+  left: auto;
+  right: 0;
+}
+
+
+.header .dropdown-item a:hover{
+  border: 1px rgb(33, 37, 41) solid;
+}
+
+

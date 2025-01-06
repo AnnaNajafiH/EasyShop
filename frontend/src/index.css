@@ -1,4 +1,7 @@
 :root {
+  --success: #B8D8BA;
+  --pending: #BFD7EA;
+  --failed: #E8DFF5;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -82,9 +85,7 @@ border:1px white solid;
   border: 1px rgb(33, 37, 41) solid;
 }
 
-.sub-header{
-  background-color: #232f3e;
-}
+
 
 .cart-badge{
   position: absolute;
@@ -99,3 +100,8 @@ border:1px white solid;
   background-color: #f0c040;
   color: #000000;
 }
+
+
+/* from here new added */
+
+

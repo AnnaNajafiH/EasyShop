@@ -1,0 +1,67 @@
+.order-history-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.order-history-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.order-table-container {
+  overflow-x: auto;
+}
+
+.order-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.order-history-table th,
+.order-history-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+.order-history-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.order-history-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.status-badge.paid {
+  background-color: var(--success);
+}
+
+.status-badge.unpaid {
+  background-color: var(--pending);
+  color: white;
+}
+
+.status-badge.delivered {
+  background-color: var(--success);
+  color: white;
+}
+
+.status-badge.not-delivered {
+  background-color:var(--pending);
+  color: #333;
+}
