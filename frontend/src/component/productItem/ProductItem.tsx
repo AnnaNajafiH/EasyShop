@@ -1,4 +1,3 @@
-import React from 'react'
 import { Product } from '../../types/Product';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -8,6 +7,7 @@ import { Store } from '../../Store';
 import { CartItem } from '../../types/Cart';
 import { convertProductToCartItem } from '../../utils/utils';
 import { toast } from 'react-toastify';
+import './ProductItem.css';
 
 
 const ProductItem = ({product} : {product:Product}) => {

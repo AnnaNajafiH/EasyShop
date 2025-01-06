@@ -13,7 +13,7 @@
 }
 
 .product-title {
-  font-size: 1.1rem;
+  font-size: 2.1rem;
   color: #333;
   text-decoration: none;
 }
@@ -24,6 +24,7 @@
 
 .product-price {
   font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .add-to-cart-btn {

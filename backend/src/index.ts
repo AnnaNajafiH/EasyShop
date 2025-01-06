@@ -25,10 +25,13 @@ mongoose
 });
 
 const app = express();
-app.use(cors({
-    credentials: true,
-    origin: "http://localhost:5173",
-}));
+
+const corsOptions = {
+  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // If you're using cookies or authorization headers
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

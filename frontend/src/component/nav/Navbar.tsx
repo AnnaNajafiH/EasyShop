@@ -53,7 +53,7 @@ function Navbar() {
           <SearchBox/>
 
           <NavbarCollapse>
-            <Nav className="w-100 justify-content-end">
+            <Nav className="w-100 justify-content-end gap-3">
               <Link 
               to='#'
               className='nav-link header-link theme-toggle'
@@ -93,7 +93,7 @@ function Navbar() {
                   </LinkContainer>
                 </NavDropdown>
               )}
-              <Link to='orderhistory' className='nav-link header-link'>Order</Link>
+              {/* <Link to='orderhistory' className='nav-link header-link'>Order</Link> */}
 
               <Link to='/cart' className='nav-link header-link p-0'>
               
