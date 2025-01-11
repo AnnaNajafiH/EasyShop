@@ -1,0 +1,9 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the layout spans the full viewport height */
+}
+
+.layout-content {
+  flex: 1; /* Pushes the footer down when content is short */
+}

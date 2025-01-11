@@ -1,17 +1,5 @@
-// import React from 'react'
-// import { Container } from 'react-bootstrap'
 
-// const Footer = () => {
-//   return (
-//     <Container className='mt-5 mb-3'>
-//       <div className="text-center h-5">@All rights reserved</div>
-//     </Container>
-//   )
-// }
 
-// export default Footer
-
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 

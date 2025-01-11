@@ -1,11 +1,11 @@
-import { Nav, Navbar as BootstrapNavbar, NavDropdown} from 'react-bootstrap';
+import { Nav, Navbar as BootstrapNavbar, NavDropdown, Container} from 'react-bootstrap';
 import { useEffect } from 'react';
 import { Store } from '../../Store';
 import { NavbarCollapse } from 'react-bootstrap';
 import { useContext } from 'react';
 import { LinkContainer} from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
-import SearchBox from '../SearchBox/SearchBox';
+// import SearchBox from '../SearchBox/SearchBox';
 import './Navbar.css';
 
 
@@ -35,22 +35,22 @@ function Navbar() {
 
   
     return (
-    <div>
+<div>
       <BootstrapNavbar 
-      className='navbar-custom d-flex flex-column align-items-stretch p-2 pb-0 mb-3 '
+      className='navbar-custom d-flex flex-column align-items-stretch p-2 pb-2 mb-3 '
       bg='dark'
       variant='dark'
       expand='lg'
       >
 
-        <div className='d-flex justify-content-between align-items-center'>
+        <Container>
           <LinkContainer to='/' className='header-link'>
           <BootstrapNavbar.Brand className={mode === 'light' ? 'text-dark' : 'text-light'}>
-              EliShop
+              EasyShop
             </BootstrapNavbar.Brand>
           </LinkContainer>
 
-          <SearchBox/>
+          {/* <SearchBox/> */}
 
           <NavbarCollapse>
             <Nav className="w-100 justify-content-end gap-3">
@@ -113,8 +113,8 @@ function Navbar() {
               </Link>
               </Nav>
           </NavbarCollapse>
-        </div>
-        <div className='sub-header d-flex justify-content-between align-items-center py-1 px-3'
+          </Container>
+        {/* <div className='sub-header d-flex justify-content-between align-items-center py-1 px-3'
           >
           <div className='d-flex '>
             <Link to='#' className='nav-link header-link'>
@@ -129,9 +129,10 @@ function Navbar() {
                 </Link>
               ))}
           </div>
-        </div>
+        </div> */}
       </BootstrapNavbar>
-    </div>
+    
+</div>
   )
 }
 

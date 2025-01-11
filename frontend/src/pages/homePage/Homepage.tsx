@@ -15,7 +15,7 @@ function Homepage() {
   return (
     <>
     <Helmet>
-      <title>Eli Shop</title>
+      <title>EasyShop</title>
     </Helmet>
          
        {/* Hero Section with Carousel */}
@@ -28,7 +28,7 @@ function Homepage() {
             alt="First slide"
           />
          <Carousel.Caption>
-          <h3>Welcome to EliShop</h3>
+          <h3>Welcome to EasyShop</h3>
           <p>Find the best products at unbeatable prices.</p>
          </Carousel.Caption>
         </CarouselItem>

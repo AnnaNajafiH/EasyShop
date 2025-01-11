@@ -18,7 +18,7 @@ Navbar Custom Styles
 }
 
 .nav-link:hover {
-  color: #007bff;
+  color: var(--yellow);
 }
 
 .theme-toggle i {
@@ -41,9 +41,9 @@ Navbar Custom Styles
   font-weight: bold;
 }
 
+
 a.header-link,
 .header-link>a {
-color: white !important;
 font-weight: bold;
 }
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Cart, CartItem, ShippingAddress } from "./types/Cart";
-import { UserInfo } from "./types/User";
+import { User } from "./types/User";
 type AppState = {
      mode: string;
      cart: Cart;
-     userInfo?: UserInfo;
+     userInfo?: User | null;
 }
 
 const initialState: AppState = {
@@ -43,7 +43,7 @@ type Action =
 |{type: 'CART_ADD_ITEM'; payload:CartItem}
 |{type: 'CART_REMOVE_ITEM'; payload:CartItem}
 |{type: 'CART_CLEAR'}
-|{type: 'USER_SIGNIN'; payload:UserInfo}
+|{type: 'USER_SIGNIN'; payload:User}
 |{type: 'USER_SIGNOUT'}
 |{type: 'SAVE_SHIPPING_ADDRESS'; payload:ShippingAddress}
 |{type: 'SAVE_PAYMENT_METHOD'; payload:string}

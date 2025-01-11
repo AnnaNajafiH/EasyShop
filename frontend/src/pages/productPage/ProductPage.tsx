@@ -50,7 +50,8 @@ const {data:product,isLoading,error} = useGetProductDetailsBySlugQuery(slug!)
     <MessageBox variant="danger">{getError(error as unknown as ApiError)}</MessageBox> 
   ): (
     <div>
-    <Row>
+<div className="mb-5">
+      <Row>
 {/*  product image */}
       <Col md={6}>
         <img src={product!.image} alt={product!.name} className="large"/>
@@ -114,8 +115,8 @@ const {data:product,isLoading,error} = useGetProductDetailsBySlugQuery(slug!)
       </Card.Body>
       </Card> 
       </Col>
-
     </Row>
+</div>
     </div>
   )
 }
