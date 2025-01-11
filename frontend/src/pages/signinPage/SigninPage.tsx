@@ -24,7 +24,7 @@ export default function SigninPage() {
     const {state, dispatch}= useContext(Store);
     const {userInfo} = state;
 
-    const {mutateAsync: signin, isLoading}= useSigninMutation()
+    const {mutateAsync: signin, status}= useSigninMutation()
     //o	mutateAsync is renamed to signin and when we call it mutationFn is called.
 
     const submitHandler = async (e: React.SyntheticEvent) => {
@@ -73,10 +73,10 @@ export default function SigninPage() {
                     />
                 </Form.Group>
                 <div className="mb-3">
-                    <Button type="submit" disabled={isLoading}>
+                    <Button type="submit" disabled={status==="pending"}>
                         Sign In
                     </Button>
-                    {isLoading && <LoadingBox/> }
+                    {status==="pending" && <LoadingBox/> }
                 </div>
                 <div className="mb-3">
                     New Customer ? {' '}

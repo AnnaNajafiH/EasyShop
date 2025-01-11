@@ -43,17 +43,19 @@ app.use('/api/seed', seedRouter);
 app.use('/api/key', keyRouter);
 
 //for deploying (render), the frontend through the backend
-app.use (express.static(path.join(__dirname, '../frontend/dist')));  
+app.use (express.static(path.join(__dirname, '../../frontend/dist')));  
+
 app.get('*', (req:Request, res:Response) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+    res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
-const PORT: number= parseInt((process.env.PORT||'4000') as string, 10);
 
-// const Port = 4000;
+const PORT: number= parseInt((process.env.PORT||'5000') as string, 10);
+
 app.listen(PORT, () => {
     console.log(`Server started at http://localhost:${PORT}`);
 });
+
 
 
 

@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet-async";
 import LoadingBox from "../../component/loadingBox/LoadingBox";
 import MessageBox from "../../component/messageBox/MessageBox";
 import { getError } from "../../utils/utils";
-import { ApiError } from "../../types/ApiError";
 import { Button } from "react-bootstrap";
 import './OrderHistoryPage.css'
 
@@ -24,7 +23,7 @@ export default function OrderHistoryPage() {
         <LoadingBox />
       ) : error ? (
         <MessageBox variant="danger">
-          {getError(error as ApiError)}
+          {getError(error)}
         </MessageBox>
       ) : (
         <div className="order-table-container">

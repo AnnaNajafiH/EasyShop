@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Form, FormCheck } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Store } from "../../Store";
 import { useState, useContext, useEffect } from "react";
 import CheckoutSteps from "../../component/checkoutSteps/CheckoutSteps";

@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async"
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import {  useNavigate, useParams } from "react-router-dom"
 import LoadingBox from "../../component/loadingBox/LoadingBox"
 import MessageBox from "../../component/messageBox/MessageBox"
 import { useGetProductDetailsBySlugQuery } from "../../hooks/productHooks"
 import { convertProductToCartItem, getError } from "../../utils/utils"
 import { ApiError } from "../../types/ApiError"
-import { Badge, Button, Card, ListGroup, ListGroupItem, Row, Toast } from "react-bootstrap"
+import { Badge, Button, Card, ListGroup, Row } from "react-bootstrap"
 import { Col } from "react-bootstrap"
 import Rating from "../../component/rating/Rating";
 import { useContext } from "react";

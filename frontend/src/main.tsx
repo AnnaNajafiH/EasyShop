@@ -18,7 +18,8 @@ createRoot(document.getElementById('root')!).render(
   <StoreProvider>
   <PayPalScriptProvider options={{clientId: 'sb'}} deferLoading={true}>
     <HelmetProvider>
-    <QueryClientProvider client={new QueryClient()}>
+    <QueryClientProvider client={queryClient}>
+    {/* <QueryClientProvider client={new QueryClient()}> */}
     <BrowserRouter>
      <App />
     </BrowserRouter>

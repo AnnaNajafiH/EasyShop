@@ -1,30 +1,34 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
+import { toast } from "react-toastify";
+
 import { Store } from "../../Store";
 import { useCreateOrderMutation } from "../../hooks/orderHooks";
-import { toast } from "react-toastify";
 import { ApiError } from "../../types/ApiError";
 import { getError } from "../../utils/utils";
-import CheckoutSteps from "../../component/checkoutSteps/CheckoutSteps";
-import { Helmet } from "react-helmet-async";
-import { Card, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import LoadingBox from "../../component/loadingBox/LoadingBox";
+import CheckoutSteps from "../../component/checkoutSteps/CheckoutSteps";
+
 
 
 export default function PlaceHolderPage() {
     const navigate= useNavigate();
 
     const {state,dispatch}=useContext(Store);
-    const {cart, userInfo}=state;
+    const {cart}=state;
 
+    // Helper function to round numbers to 2 decimal places
     const round2= (num: number)=>Math.round(num*100 + Number.EPSILON)/100;  //123.2345=>123.23
 
+    // Calculate prices
     cart.itemsPrice=round2(cart.cartItems.reduce((a,c)=>a+c.price*c.quantity,0));
     cart.shippingPrice=cart.itemsPrice>100?round2(0):round2(10);
     cart.taxPrice=round2(cart.itemsPrice*0.15);
     cart.totalPrice=cart.itemsPrice+cart.shippingPrice+cart.taxPrice;
 
-    const {mutateAsync: createOrder, isLoading} = useCreateOrderMutation();
+    const {mutateAsync: createOrder, status} = useCreateOrderMutation();
 
     const placeOrderHandler= async ()=>{
         try {
@@ -69,6 +73,7 @@ export default function PlaceHolderPage() {
                 </Card.Body>
             </Card>
 
+          {/* Payment Method */}
             <Card className="mb-3">
                 <Card.Body>
                     <Card.Title>Payment</Card.Title>
@@ -79,6 +84,7 @@ export default function PlaceHolderPage() {
                 </Card.Body>
             </Card>
 
+          {/* Cart Items */}
             <Card className="mb-3">
                 <Card.Body>
                     <Card.Title>Items</Card.Title>
@@ -107,6 +113,8 @@ export default function PlaceHolderPage() {
                 </Card.Body>
             </Card>
             </Col>
+                    
+            {/* Order Summary */}
             <Col md={4}>
            <Card>
             <Card.Body>
@@ -141,10 +149,11 @@ export default function PlaceHolderPage() {
                             <button
                             type="button"
                             onClick={placeOrderHandler}
-                            disabled={cart.cartItems.length === 0 || isLoading}>
+                            // status should be loading but i get error 
+                            disabled={cart.cartItems.length === 0 || status === "pending"}> 
                                 Place Order
                             </button>
-                            {isLoading && <LoadingBox></LoadingBox>}
+                         {status === "pending" && <LoadingBox />}
                         </div>
                     </ListGroup.Item>
                 </ListGroup>
