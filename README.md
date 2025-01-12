@@ -1,6 +1,7 @@
 # **Ecommerce Application**
 
 ## **Technologies Used 🛠️**
+- ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 - ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 - ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 - ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -12,7 +13,9 @@
 
 ## **Project Description 📚**
 
-This is a **full-stack Ecommerce Application** built with **React**, **Node.js**, **MongoDB**, and **PayPal Integration**. It allows users to **view products**, **add them to a shopping cart**, and **proceed to checkout** via **PayPal**.
+This is a **full-stack Ecommerce Application** built with **React**, **Node.js**, **MongoDB**, and **PayPal Integration**.The application is written in **TypeScript** to provide type safety across the backend and frontend.</br>
+ 
+It allows users to **view products**, **add them to a shopping cart**, and **proceed to checkout** via **PayPal**.
 
 Key features include:
 - User Authentication (login/registration)
@@ -21,6 +24,7 @@ Key features include:
 - Checkout process using PayPal
 - Admin panel for managing products, orders, and users
 - Order History to track past orders
+
 
 ---
 
@@ -31,6 +35,8 @@ Key features include:
 - **Checkout with PayPal**: Securely pay using PayPal for orders.
 - **Admin Dashboard**: Manage products, users, and orders (CRUD operations).
 - **Order History**: Track previous orders and view their statuses.
+- **Global State Management**: Uses **`useContext`** and **`useReducer`** hooks for managing global state across components, such as the shopping cart and user authentication.
+
 
 ---
 
@@ -41,3 +47,5 @@ To get started with the project:
 ### **1. Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/ecommerce-app.git
+   
+
