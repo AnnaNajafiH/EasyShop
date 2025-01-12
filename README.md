@@ -44,8 +44,7 @@ Key features include:
 
 To get started with the project:
 
-### **1. Clone the repository**:
+### **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/ecommerce-app.git
    
-
