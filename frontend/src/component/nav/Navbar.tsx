@@ -5,15 +5,13 @@ import { NavbarCollapse } from 'react-bootstrap';
 import { useContext } from 'react';
 import { LinkContainer} from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
-// import SearchBox from '../SearchBox/SearchBox';
 import './Navbar.css';
+import { text } from 'stream/consumers';
+// import SearchBox from '../SearchBox/SearchBox';
 
 
 function Navbar() {
-   const {
-    state : {mode , cart, userInfo},
-     dispatch} = 
-     useContext(Store)
+   const {state : {mode , cart, userInfo}, dispatch} = useContext(Store)
 
   useEffect(() => {
     document.body.setAttribute('data-bs-theme', mode)
@@ -34,18 +32,20 @@ function Navbar() {
   }
 
   
-    return (
-<div>
+  return (
+  <div>
       <BootstrapNavbar 
-      className='navbar-custom d-flex flex-column align-items-stretch p-2 pb-2 mb-3 '
-      bg='dark'
-      variant='dark'
-      expand='lg'
+        className='navbar-custom d-flex flex-column align-items-stretch mb-3 ml-3 mr-3'
+        // bg='dark'
+        variant='secondary'
+        expand='lg'
+        style={{ backgroundColor: mode==='light'?'#2F4F4F ':'#212529'}}
       >
 
         <Container>
           <LinkContainer to='/' className='header-link'>
-          <BootstrapNavbar.Brand className={mode === 'light' ? 'text-dark' : 'text-light'}>
+          <BootstrapNavbar.Brand className='easy-shop'>
+          {/* <BootstrapNavbar.Brand className={mode === 'light' ? 'text-dark' : 'text-light'}> */}
               EasyShop
             </BootstrapNavbar.Brand>
           </LinkContainer>
@@ -59,7 +59,7 @@ function Navbar() {
               className='nav-link header-link theme-toggle'
               onClick={switchModeHandler}>
                 <i className={mode=== 'light' ? 'fa fa-sun' : 'fa fa-moon'}></i>{' '}
-                {mode=== 'light' ? 'Light' : 'Dark'}
+                {/* {mode=== 'light' ? 'Light' : 'Dark'} */}
               </Link>
               {userInfo ?(
                 <NavDropdown className='header-link' title={`Hello, ${userInfo.name}`} >
@@ -78,10 +78,10 @@ function Navbar() {
                   <NavDropdown.Divider/>
 
                   <Link 
-                  className='dropdown-item'
-                  to='#signout'
-                  onClick={signoutHandler}>
-                  Sign Out 
+                    className='dropdown-item'
+                    to='#signout'
+                    onClick={signoutHandler}>
+                    Sign Out 
                   </Link>
                 </NavDropdown>
               ):(
@@ -96,11 +96,10 @@ function Navbar() {
               {/* <Link to='orderhistory' className='nav-link header-link'>Order</Link> */}
 
               <Link to='/cart' className='nav-link header-link p-0'>
-              
                 <span className='cart-badge'>
                   {cart.cartItems.reduce((a,c) => a + c.quantity , 0)}
                 </span>
-              
+
                     <svg
                     fill="#ffffff"
                     viewBox="130 150 200 300"

@@ -1,20 +1,25 @@
 Navbar Custom Styles
 .navbar-custom {
   padding: 2rem;
-  margin: 10px;
-  margin-left: 3rem;
-  margin-right: 3rem;
 }
 
 .navbar-brand {
   font-family:  'Montserrat', sans-serif;
   font-weight: bold;
+  font-size: 1.8rem;
 }
+
 
 .nav-link {
   color: #fff;
   font-size: 1rem;
   padding: 0.5rem 1rem;
+}
+.nav-link,
+.dropdown-item {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .nav-link:hover {
@@ -36,21 +41,21 @@ Navbar Custom Styles
   padding: 5px 10px;
 }
 
-.navbar-brand {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
 
 a.header-link,
 .header-link>a {
 font-weight: bold;
 }
 
+.header-link {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 a.header-link:hover,
-.header-link>a:hover {
-color: white;
-border:1px white solid;
+.header-link > a:hover {
+  color: white;
 }
 
  

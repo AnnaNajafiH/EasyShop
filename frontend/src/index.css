@@ -6,6 +6,9 @@
   --success: #B8D8BA;
   --pending: #BFD7EA;
   --failed: #E8DFF5;
+  --brand: #DC143C;
+  /* --navbarLight: #808080;
+  --navbarDark: #212529; */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
