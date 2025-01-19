@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -8,7 +8,6 @@ import { userRouter } from './routers/userRouter';
 import { orderRouter } from './routers/orderRouter';
 import { keyRouter } from './routers/keyRouter';
 import path from 'path';
-import { Request, Response } from 'express';
 
 
 dotenv.config();

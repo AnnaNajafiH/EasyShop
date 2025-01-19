@@ -2,10 +2,18 @@
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Store } from '../../Store';
 
 function Footer() {
-  return (
-    <div className="bg-dark text-white py-4 mt-6">
+  const { state: { mode} } = useContext(Store);
+
+
+    return (
+    <div 
+    className=" text-white py-4 mt-6"
+    style={{ backgroundColor: mode === 'light' ? '#2F4F4F' : '#212529' }}
+    >
       <Container>
         <Row>
           {/* Column 1: About */}

@@ -1,12 +1,5 @@
-Navbar Custom Styles
 .navbar-custom {
   padding: 2rem;
-}
-
-.navbar-brand {
-  font-family:  'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 1.8rem;
 }
 
 
@@ -47,18 +40,17 @@ a.header-link,
 font-weight: bold;
 }
 
+a.header-link:hover,
+.header-link > a:hover {
+  color: white;
+}
+
 .header-link {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
 }
 
-a.header-link:hover,
-.header-link > a:hover {
-  color: white;
-}
-
- 
 
 .header .dropdown-menu,
 .header .dropdown-item{

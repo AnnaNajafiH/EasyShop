@@ -1,5 +1,5 @@
 *{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family:'helvetica';
 }
 
 :root {
@@ -7,8 +7,11 @@
   --pending: #BFD7EA;
   --failed: #E8DFF5;
   --brand: #DC143C;
-  /* --navbarLight: #808080;
-  --navbarDark: #212529; */
+  --brandHover: #a40525;
+  --brandDeactive: #f3607d;
+  --green: #2F4F4F;
+  --navbarDark: #212529;
+  --gray: #6c757d;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

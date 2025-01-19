@@ -30,28 +30,35 @@ const ProductItem = ({product} : {product:Product}) => {
     }
 
   return (
-    <Card>
+    <Card className='product-item'>
         <Link to={`/product/${product.slug}`}>
-            <img src={product.image} className='card-img-top ' alt={product.name} />
+            <img src={product.image} className='card-img-top' alt={product.name} />
         </Link>
         <Card.Body>
             <Link to={`/product/${product.slug}`}>
-                <Card.Title as='div'>
-                    <strong>{product.name}</strong>
+                <Card.Title >
+                    <p className='product-title'>{product.name}</p>
                 </Card.Title>
             </Link>
-            <Card.Text as='h3'>
-                ${product.price}
+            <Card.Text>
+                <p className='product-price'>${product.price}</p>
             </Card.Text>
             <Rating 
             rating={product.rating} 
             numReviews={product.numReviews}
             />
             {product.countInStock > 0 ? (
-                <Button variant='primary' onClick={()=>addToCartHandler(convertProductToCartItem(product))}>Add to Cart
-                </Button>
+            <Button 
+                variant='primary' 
+                className="add-to-cart-btn"
+                onClick={()=>addToCartHandler(convertProductToCartItem(product))}>Add to Cart
+            </Button>
             ) : (
-                <Button variant='primary' disabled>Out of Stock</Button>
+            <Button 
+                variant='primary' 
+                className="out-of-stock-btn"
+                disabled>Out of Stock
+            </Button>
             )}
         </Card.Body>
     </Card>
