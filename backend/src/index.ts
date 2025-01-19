@@ -12,13 +12,13 @@ import path from 'path';
 
 dotenv.config();
 const MONGODB_URI = 
-process.env.MONGODB_URI || "mongodb://localhost/tsEasyShopping";
+process.env.MONGODB_URI || "mongodb://localhost/EasyShop";
 mongoose.set ('strictQuery', true);
-console.log("MongoDB URI:", MONGODB_URI); //debugging
+
 mongoose.connect(MONGODB_URI)
 .then(() => {console.log("Connected to MongoDB");})
 .catch((error) => {console.log('Error in connecting to MongoDB:', error.message);
-process.exit(1);  // Exit the process if MongoDB connection fails
+
 });
 
 
@@ -42,8 +42,6 @@ app.use('/api/key', keyRouter);
 
 //for deploying (render), the frontend through the backend
 app.use (express.static(path.join(__dirname, '../../frontend/dist')));  
-
-
 app.get('*', (req:Request, res:Response) => {
     res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
