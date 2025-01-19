@@ -14,10 +14,13 @@ dotenv.config();
 const MONGODB_URI = 
 process.env.MONGODB_URI || "mongodb://localhost/tsEasyShopping";
 mongoose.set ('strictQuery', true);
-mongoose
-.connect(MONGODB_URI)
+console.log("MongoDB URI:", MONGODB_URI); //debugging
+mongoose.connect(MONGODB_URI)
 .then(() => {console.log("Connected to MongoDB");})
-.catch((error) => {console.log('Error in connecting to MongoDB:', error.message);});
+.catch((error) => {console.log('Error in connecting to MongoDB:', error.message);
+process.exit(1);  // Exit the process if MongoDB connection fails
+});
+
 
 const app = express();
 
