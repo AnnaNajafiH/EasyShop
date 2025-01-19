@@ -1,3 +1,4 @@
+// http://localhost:4000/api/seed
 import express from 'express';
 import { sampleProducts , sampleUsers} from '../data/data';
 import { ProductModel } from '../models/productModel';

@@ -16,12 +16,8 @@ process.env.MONGODB_URI || "mongodb://localhost/tsEasyShopping";
 mongoose.set ('strictQuery', true);
 mongoose
 .connect(MONGODB_URI)
-.then(() => {
-    console.log("Connected to MongoDB");
-})
-.catch((error) => {
-    console.log('Error in connecting to MongoDB:', error.message);
-});
+.then(() => {console.log("Connected to MongoDB");})
+.catch((error) => {console.log('Error in connecting to MongoDB:', error.message);});
 
 const app = express();
 
@@ -43,6 +39,7 @@ app.use('/api/key', keyRouter);
 
 //for deploying (render), the frontend through the backend
 app.use (express.static(path.join(__dirname, '../../frontend/dist')));  
+
 
 app.get('*', (req:Request, res:Response) => {
     res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
