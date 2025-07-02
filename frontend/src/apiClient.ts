@@ -2,8 +2,8 @@ import axios from "axios";
 
 const apiClient = axios.create({
     baseURL: process.env.NODE_ENV === "development" 
-        ? "http://localhost:4000/" 
-        : "https://easyshop-backend-klk4.onrender.com/",
+        ? "http://localhost:4000" 
+        : "https://easyshop-backend-klk4.onrender.com",
     headers: {
         "Content-Type": "application/json",
     },
