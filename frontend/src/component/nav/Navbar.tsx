@@ -40,7 +40,9 @@ function Navbar() {
           </BootstrapNavbar.Brand>
         </LinkContainer>
 
-        <BootstrapNavbar.Collapse>
+        <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+
+        <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="w-100 justify-content-end gap-3">
             <Link
               to="#"
