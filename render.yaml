@@ -13,21 +13,28 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        sync: false # Set this in Render dashboard
+        sync: false # You'll set this in Render dashboard
       - key: JWT_SECRET
-        sync: false # Set this in Render dashboard
+        generateValue: true # Render will generate a secure secret
       - key: PAYPAL_CLIENT_ID
-        sync: false # Set this in Render dashboard
+        value: sb
       - key: FRONTEND_URL
-        value: https://your-frontend-app.onrender.com
+        value: "*" # Allow all origins for now
 
-  # Frontend Static Site
+  # Frontend Static Site  
   - type: static
     name: ecommerce-frontend
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     pullRequestPreviewsEnabled: false
-    headers:
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+      - type: redirect
+        source: /api/*
+        destination: https://ecommerce-backend.onrender.com/*
+        status: 200
       - path: /*
         name: X-Frame-Options
         value: DENY

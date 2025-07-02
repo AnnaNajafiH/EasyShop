@@ -3,11 +3,11 @@ import axios from "axios";
 const apiClient = axios.create({
     baseURL: process.env.NODE_ENV === "development" 
         ? "http://localhost:4000/" 
-        : "/",
+        : "/api/",
     headers: {
         "Content-Type": "application/json",
     },
-    timeout: 10000, // 10 second timeout
+    timeout: 30000, // 30 second timeout for production
 });
 
 apiClient.interceptors.request.use(
