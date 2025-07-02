@@ -73,7 +73,7 @@ function Navbar() {
               </NavDropdown>
             )}
             <Link to="/cart" className="nav-link header-link p-0">
-              <span className="cart-badge">
+              <span className="cart-badge" >
                 {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
               </span>
               <svg fill="#ffffff" viewBox="130 150 200 300" width="40px" height="40px">

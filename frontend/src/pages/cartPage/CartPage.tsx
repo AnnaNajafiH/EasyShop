@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { Button, ListGroup, Row, Col, Card, Image } from "react-bootstrap";
 import MessageBox from "../../component/messageBox/MessageBox";
+import './CartPage.css';
 
 export default function CartPage(){
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ export default function CartPage(){
         <Helmet>
             <title>Shopping Cart</title>
         </Helmet>
-        <h1>Shopping Cart</h1>
+        <h1 className="mb-4">Shopping Cart</h1>
         <Row>
             {/* left side */}
             <Col md={8}>
@@ -76,6 +77,7 @@ export default function CartPage(){
 
                                         <Col md={2}>
                                         <Button variant={mode}
+                                        className="delete-btn"
                                         onClick={() => removeItemHandler(item)}>
                                             <i className="fas fa-trash"></i>
                                         </Button>
@@ -100,7 +102,7 @@ export default function CartPage(){
                             </h3>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <Button  className="w-100"
+                            <Button  className="w-100 proceed-btn"
                             type="button"
                             variant="primary"
                             disabled={cartItems.length === 0}

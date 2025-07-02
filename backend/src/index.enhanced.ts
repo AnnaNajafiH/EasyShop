@@ -2,14 +2,14 @@ import express, { Request, Response, Application } from 'express';
 import cors from "cors";
 import dotenv from "dotenv";
 import path from 'path';
-// import helmet from 'helmet';
-// import compression from 'compression';
-// import morgan from 'morgan';
+import helmet from 'helmet';
+import compression from 'compression';
+import morgan from 'morgan';
 
 // Import configurations and middleware
 import connectDB from './config/database';
 import { globalErrorHandler, notFoundHandler } from './middleware/errorHandler';
-// import { generalLimiter, authLimiter, apiLimiter } from './middleware/rateLimiter';
+import { generalLimiter, authLimiter, apiLimiter } from './middleware/rateLimiter';
 
 // Import routers
 import { productRouter } from "./routers/productRouter";
@@ -23,30 +23,30 @@ dotenv.config();
 
 const app: Application = express();
 
-// Security Middleware (commented out until dependencies are installed)
-// app.use(helmet({
-//   crossOriginEmbedderPolicy: false,
-//   contentSecurityPolicy: {
-//     directives: {
-//       defaultSrc: ["'self'"],
-//       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-//       fontSrc: ["'self'", "https://fonts.gstatic.com"],
-//       imgSrc: ["'self'", "data:", "https:"],
-//       scriptSrc: ["'self'"],
-//       connectSrc: ["'self'", "https://api.paypal.com", "https://www.sandbox.paypal.com"]
-//     }
-//   }
-// }));
+// Security Middleware
+app.use(helmet({
+  crossOriginEmbedderPolicy: false,
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:"],
+      scriptSrc: ["'self'"],
+      connectSrc: ["'self'", "https://api.paypal.com", "https://www.sandbox.paypal.com"]
+    }
+  }
+}));
 
-// Compression middleware (commented out until dependencies are installed)
-// app.use(compression());
+// Compression middleware
+app.use(compression());
 
-// Logging middleware (commented out until dependencies are installed)
-// if (process.env.NODE_ENV === 'development') {
-//   app.use(morgan('dev'));
-// } else {
-//   app.use(morgan('combined'));
-// }
+// Logging middleware
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+} else {
+  app.use(morgan('combined'));
+}
 
 // CORS configuration
 const corsOptions = {
@@ -63,10 +63,10 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Rate limiting (commented out until dependencies are installed)
-// app.use('/api/', apiLimiter);
-// app.use('/api/users/signin', authLimiter);
-// app.use('/api/users/signup', authLimiter);
+// Rate limiting
+app.use('/api/', apiLimiter);
+app.use('/api/users/signin', authLimiter);
+app.use('/api/users/signup', authLimiter);
 
 // Health check endpoint
 app.get('/health', (req: Request, res: Response) => {

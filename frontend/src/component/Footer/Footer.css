@@ -1,0 +1,41 @@
+.footer-container {
+  background-color: #2F4F4F;
+  color: white;
+  padding: 30px 0;
+}
+
+.footer-heading {
+  font-size: 1.2rem; 
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  font-size: 0.9rem; 
+}
+
+.footer-links {
+  padding-left: 0;
+  font-size: 0.9rem; 
+}
+
+.footer-link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffcc00;
+}
+
+.footer-column {
+  margin-bottom: 20px;
+}
+
+.footer-row {
+  margin-bottom: 40px;
+}
+
+.footer-text i {
+  margin-right: 10px;
+}

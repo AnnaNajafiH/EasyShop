@@ -1,0 +1,15 @@
+.delete-btn{
+    color: var(--brand);
+    background:var(--grey);
+    padding: 10px 0;
+    width: 50%;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.proceed-btn{
+    background:var(--brand);
+    cursor: pointer;
+    border: none;
+}
+
