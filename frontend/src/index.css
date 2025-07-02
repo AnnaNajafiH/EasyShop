@@ -111,38 +111,181 @@ border:1px white solid;
   color: #000000;
 }
 
-/* Custom Button Styles to match brand color */
+/* Enhanced Button Design System for Consistency */
+.btn {
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
 .btn-primary {
-  background-color: var(--brand) !important;
-  border-color: var(--brand) !important;
+  background: linear-gradient(45deg, var(--brand), var(--brandHover)) !important;
+  border: none !important;
   color: white !important;
+  box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3) !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-  background-color: var(--brandHover) !important;
-  border-color: var(--brandHover) !important;
+  background: linear-gradient(45deg, var(--brandHover), var(--brand)) !important;
+  border: none !important;
   color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4) !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, var(--green), #1a3636) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(47, 79, 79, 0.3) !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+  background: linear-gradient(45deg, #1a3636, var(--green)) !important;
+  border: none !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(47, 79, 79, 0.4) !important;
+}
+
+.btn-outline-primary {
+  background: transparent !important;
+  border: 2px solid var(--brand) !important;
+  color: var(--brand) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-light {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  color: var(--green) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+  background: white !important;
+  color: var(--brand) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
 .btn-danger {
-  background-color: var(--brand) !important;
-  border-color: var(--brand) !important;
+  background: linear-gradient(45deg, var(--brand), var(--brandHover)) !important;
+  border: none !important;
   color: white !important;
+  box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3) !important;
 }
 
 .btn-danger:hover,
 .btn-danger:focus,
 .btn-danger:active {
-  background-color: var(--brandHover) !important;
-  border-color: var(--brandHover) !important;
+  background: linear-gradient(45deg, var(--brandHover), var(--brand)) !important;
+  border: none !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4) !important;
+}
+
+.btn-success {
+  background: linear-gradient(45deg, var(--green), #1a3636) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(47, 79, 79, 0.3) !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  background: linear-gradient(45deg, #1a3636, var(--green)) !important;
+  border: none !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(47, 79, 79, 0.4) !important;
+}
+
+.btn-warning {
+  background: linear-gradient(45deg, #ff8c00, #ff6b00) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3) !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
+  background: linear-gradient(45deg, #ff6b00, #ff8c00) !important;
+  border: none !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4) !important;
+}
+
+/* Small button variations */
+.btn-sm {
+  padding: 8px 20px !important;
+  font-size: 0.875rem !important;
+}
+
+.btn-lg {
+  padding: 12px 30px !important;
+  font-size: 1.1rem !important;
+}
+
+/* Badge consistency */
+.badge {
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+}
+
+.badge.bg-primary {
+  background: var(--brand) !important;
   color: white !important;
 }
 
-/* Badge primary color to match brand */
-.badge.bg-primary {
-  background-color: var(--brand) !important;
+/* Dark Mode Button Adjustments */
+[data-bs-theme="dark"] .btn-light {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .btn-light:hover,
+[data-bs-theme="dark"] .btn-light:focus,
+[data-bs-theme="dark"] .btn-light:active {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: var(--brand) !important;
+  color: var(--brand) !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary {
+  border-color: var(--brand) !important;
+  color: var(--brand) !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary:hover,
+[data-bs-theme="dark"] .btn-outline-primary:focus,
+[data-bs-theme="dark"] .btn-outline-primary:active {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: white !important;
 }
 
 

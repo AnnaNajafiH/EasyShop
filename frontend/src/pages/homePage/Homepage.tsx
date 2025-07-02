@@ -94,7 +94,7 @@ function Homepage() {
                 <h1 className="hero-title">Transform Your Space</h1>
                 <p className="hero-subtitle">Discover our curated collection of premium vases and home décor</p>
                 <Button 
-                  variant="light" 
+                  variant="primary" 
                   size="lg" 
                   className="hero-cta"
                   onClick={handleShopCollection}
@@ -118,7 +118,7 @@ function Homepage() {
                 <h1 className="hero-title">Exclusive Deals</h1>
                 <p className="hero-subtitle">Up to 40% off on selected premium collections</p>
                 <Button 
-                  variant="warning" 
+                  variant="primary" 
                   size="lg" 
                   className="hero-cta"
                   onClick={handleShopNow}
@@ -142,7 +142,7 @@ function Homepage() {
                 <h1 className="hero-title">Crafted with Care</h1>
                 <p className="hero-subtitle">Each piece is carefully selected for quality and design excellence</p>
                 <Button 
-                  variant="success" 
+                  variant="primary" 
                   size="lg" 
                   className="hero-cta"
                   onClick={handleLearnMore}

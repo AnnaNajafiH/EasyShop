@@ -110,6 +110,33 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+/* Hero Button Specific Styling */
+.hero-cta.btn-primary {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+}
+
+.hero-cta.btn-primary:hover {
+  background: var(--brandHover) !important;
+  border-color: var(--brandHover) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+}
+
+.hero-cta.btn-primary:focus,
+.hero-cta.btn-primary:active {
+  background: var(--brandHover) !important;
+  border-color: var(--brandHover) !important;
+  color: white !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 20, 60, 0.25);
+}
+
 /* Features Section */
 .features-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -309,7 +336,6 @@
   border-radius: 0 50px 50px 0;
   padding: 15px 25px;
   font-weight: 600;
-  border: none;
 }
 
 /* Dark Mode Styles */
