@@ -105,16 +105,6 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
-// Health check endpoint for Render
-app.get('/health', (req: Request, res: Response) => {
-  res.json({
-    success: true,
-    message: 'Server is healthy',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
-});
-
 // 404 handler for unknown routes
 app.use(notFoundHandler);
 
