@@ -1,0 +1,96 @@
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo-svg {
+  height: auto;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Size variations */
+.logo-small .logo-svg {
+  height: 30px;
+  width: 120px;
+}
+
+.logo-medium .logo-svg {
+  height: 40px;
+  width: 160px;
+}
+
+.logo-large .logo-svg {
+  height: 50px;
+  width: 200px;
+}
+
+/* Animation effects */
+.logo-icon {
+  transform-origin: center;
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.logo-text .logo-easy,
+.logo-text .logo-shop {
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover .logo-easy {
+  fill: var(--brandHover) !important;
+}
+
+.logo-container:hover .logo-shop {
+  fill: #ffffff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo-medium .logo-svg {
+    height: 35px;
+    width: 140px;
+  }
+  
+  .logo-large .logo-svg {
+    height: 40px;
+    width: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo-medium .logo-svg {
+    height: 30px;
+    width: 120px;
+  }
+  
+  .logo-large .logo-svg {
+    height: 35px;
+    width: 140px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .logo-container:hover {
+    transform: none;
+  }
+  
+  .logo-icon {
+    animation: none;
+  }
+}
