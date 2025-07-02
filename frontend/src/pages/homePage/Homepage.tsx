@@ -8,14 +8,21 @@ import { useGetProductsQuery } from "../../hooks/productHooks";
 import { getError } from "../../utils/utils";
 import { ApiError } from "../../types/ApiError";
 import "./HomePage.css";
-import { useState, useMemo, useContext } from "react";
+import { useState, useMemo, useContext, useEffect } from "react";
 import { Store } from "../../Store";
 import HomeSearchBox from "../../component/HomeSearchBox/HomeSearchBox";
 
 function Homepage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const { state: { mode } } = useContext(Store);
+
+  // Animation trigger
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Debug logging
   console.log("Homepage Debug:", { 
@@ -38,8 +45,19 @@ function Homepage() {
   const featuredProducts = filteredProducts.slice(0, 4) || [];
   const displayProducts = searchQuery.trim() ? filteredProducts : products || [];
 
+  // Get categories for quick filters
+  const categories = useMemo(() => {
+    if (!products) return [];
+    const uniqueCategories = [...new Set(products.map(p => p.category))];
+    return uniqueCategories.slice(0, 6); // Show first 6 categories
+  }, [products]);
+
   const handleSearch = (query: string) => {
     setSearchQuery(query);
+  };
+
+  const handleCategoryFilter = (category: string) => {
+    setSearchQuery(category);
   };
 
   // Hero button handlers
@@ -78,8 +96,11 @@ function Homepage() {
       </Helmet>
 
       {/* Enhanced Hero Section */}
-      <div className="hero-section">
-        <Carousel interval={5000} fade>
+      <div className={`hero-section ${isVisible ? 'fade-in' : ''}`}>
+        <Carousel 
+          interval={5000} 
+          fade 
+        >
           <CarouselItem>
             <div className="carousel-image-container">
               <img
@@ -88,15 +109,21 @@ function Homepage() {
                 alt="Beautiful home décor collection"
               />
               <div className="carousel-overlay"></div>
+              <div className="floating-elements">
+                <div className="floating-element element-1">✨</div>
+                <div className="floating-element element-2">🌸</div>
+                <div className="floating-element element-3">💎</div>
+              </div>
             </div>
             <Carousel.Caption className="modern-caption">
-              <div className="caption-content">
+              <div className="caption-content slide-up">
                 <h1 className="hero-title">Transform Your Space</h1>
                 <p className="hero-subtitle">Discover our curated collection of premium vases and home décor</p>
+
                 <Button 
                   variant="primary" 
                   size="lg" 
-                  className="hero-cta"
+                  className="hero-cta pulse-animation"
                   onClick={handleShopCollection}
                 >
                   Shop Collection
@@ -112,17 +139,23 @@ function Homepage() {
                 alt="Exclusive deals and offers"
               />
               <div className="carousel-overlay"></div>
+              <div className="floating-elements">
+                <div className="floating-element element-4">💰</div>
+                <div className="floating-element element-5">🎯</div>
+                <div className="floating-element element-6">⭐</div>
+              </div>
             </div>
             <Carousel.Caption className="modern-caption">
-              <div className="caption-content">
+              <div className="caption-content slide-up">
                 <h1 className="hero-title">Exclusive Deals</h1>
                 <p className="hero-subtitle">Up to 40% off on selected premium collections</p>
                 <Button 
                   variant="primary" 
                   size="lg" 
-                  className="hero-cta"
+                  className="hero-cta pulse-animation"
                   onClick={handleShopNow}
                 >
+                  <span className="btn-icon">⚡</span>
                   Shop Now
                 </Button>
               </div>
@@ -136,15 +169,20 @@ function Homepage() {
                 alt="Quality you can trust"
               />
               <div className="carousel-overlay"></div>
+              <div className="floating-elements">
+                <div className="floating-element element-7">🏆</div>
+                <div className="floating-element element-8">💎</div>
+                <div className="floating-element element-9">🌟</div>
+              </div>
             </div>
             <Carousel.Caption className="modern-caption">
-              <div className="caption-content">
+              <div className="caption-content slide-up">
                 <h1 className="hero-title">Crafted with Care</h1>
                 <p className="hero-subtitle">Each piece is carefully selected for quality and design excellence</p>
                 <Button 
                   variant="primary" 
                   size="lg" 
-                  className="hero-cta"
+                  className="hero-cta pulse-animation"
                   onClick={handleLearnMore}
                 >
                   Learn More
@@ -156,39 +194,85 @@ function Homepage() {
       </div>
 
       {/* Features Section */}
-      <section className="features-section py-5">
+      <section className={`features-section py-5 ${isVisible ? 'slide-in-up' : ''}`}>
         <Container>
+          <div className="section-header text-center mb-5">
+            <h2 className="section-title">Why Choose Flourish & Bloom?</h2>
+            <p className="section-subtitle">Experience the difference with our premium service</p>
+          </div>
           <Row className="text-center">
             <Col md={4} className="mb-4">
-              <div className="feature-card">
+              <div className="feature-card hover-lift">
                 <div className="feature-icon">
                   <i className="fas fa-shipping-fast"></i>
                 </div>
                 <h4>Free Shipping</h4>
-                <p>Free delivery on orders over $50</p>
+                <p>Free delivery on orders over $50. Fast and reliable shipping nationwide.</p>
+                <div className="feature-extra">
+                  <span className="feature-badge">📦 2-3 Days</span>
+                </div>
               </div>
             </Col>
             <Col md={4} className="mb-4">
-              <div className="feature-card">
+              <div className="feature-card hover-lift">
                 <div className="feature-icon">
                   <i className="fas fa-award"></i>
                 </div>
                 <h4>Premium Quality</h4>
-                <p>Handpicked items with quality guarantee</p>
+                <p>Handpicked items with quality guarantee. Every piece tells a story.</p>
+                <div className="feature-extra">
+                  <span className="feature-badge">⭐ 5-Star Rated</span>
+                </div>
               </div>
             </Col>
             <Col md={4} className="mb-4">
-              <div className="feature-card">
+              <div className="feature-card hover-lift">
                 <div className="feature-icon">
                   <i className="fas fa-headset"></i>
                 </div>
                 <h4>24/7 Support</h4>
-                <p>Dedicated customer service team</p>
+                <p>Dedicated customer service team ready to help you anytime.</p>
+                <div className="feature-extra">
+                  <span className="feature-badge">💬 Live Chat</span>
+                </div>
               </div>
             </Col>
           </Row>
         </Container>
       </section>
+
+      {/* Categories Section */}
+      {categories.length > 0 && (
+        <section className="categories-section py-5">
+          {/* <Container>
+            <div className="section-header text-center mb-5">
+              <h2 className="section-title">Shop by Category</h2>
+              <p className="section-subtitle">Find exactly what you're looking for</p>
+            </div>
+            <Row>
+              {categories.map((category, index) => (
+                <Col key={category} md={4} lg={2} className="mb-3">
+                  <div 
+                    className="category-card"
+                    onClick={() => handleCategoryFilter(category)}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="category-icon">
+                      {category === 'Vases' && '🏺'}
+                      {category === 'Decor' && '🏡'}
+                      {category === 'Lighting' && '💡'}
+                      {category === 'Furniture' && '🪑'}
+                      {category === 'Textiles' && '🧶'}
+                      {!['Vases', 'Decor', 'Lighting', 'Furniture', 'Textiles'].includes(category) && '✨'}
+                    </div>
+                    <h5>{category}</h5>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </Container> */}
+        </section>
+      )}
 
       {/* Search Section */}
       <section className={`search-section py-4 ${mode === 'light' ? 'bg-light' : ''}`}>
@@ -271,29 +355,61 @@ function Homepage() {
         </Container>
       </section>
 
-      {/* Newsletter Section */}
-      {/* <section className="newsletter-section py-5 bg-dark text-white">
+      {/* Testimonials Section */}
+      <section className="testimonials-section py-5">
         <Container>
-          <Row className="align-items-center">
-            <Col lg={6}>
-              <h3>Stay Updated</h3>
-              <p>Get the latest updates on new arrivals and exclusive offers.</p>
+          <div className="section-header text-center mb-5">
+            <h2 className="section-title">What Our Customers Say</h2>
+            <p className="section-subtitle">Real reviews from real customers</p>
+          </div>
+          <Row>
+            <Col md={4} className="mb-4">
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  ⭐⭐⭐⭐⭐
+                </div>
+                <p className="testimonial-text">
+                  "Absolutely love my new vase! The quality is exceptional and it looks perfect in my living room."
+                </p>
+                <div className="testimonial-author">
+                  <strong>Sarah M.</strong>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
             </Col>
-            <Col lg={6}>
-              <div className="newsletter-form">
-                <div className="input-group">
-                  <input 
-                    type="email" 
-                    className="form-control" 
-                    placeholder="Enter your email address"
-                  />
-                  <Button variant="primary">Subscribe</Button>
+            <Col md={4} className="mb-4">
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  ⭐⭐⭐⭐⭐
+                </div>
+                <p className="testimonial-text">
+                  "Fast shipping and excellent customer service. Will definitely shop here again!"
+                </p>
+                <div className="testimonial-author">
+                  <strong>David L.</strong>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
+            </Col>
+            <Col md={4} className="mb-4">
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  ⭐⭐⭐⭐⭐
+                </div>
+                <p className="testimonial-text">
+                  "The home décor collection is stunning. Each piece is unique and beautifully crafted."
+                </p>
+                <div className="testimonial-author">
+                  <strong>Emma K.</strong>
+                  <span>Verified Buyer</span>
                 </div>
               </div>
             </Col>
           </Row>
         </Container>
-      </section> */}
+      </section>
+
+
     </>
   );
 }
