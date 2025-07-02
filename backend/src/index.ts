@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === 'development') {
 // CORS configuration
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? (process.env.FRONTEND_URL?.split(',') || ['https://your-frontend-app.onrender.com'])
+    ? ['https://easyshop-frontend-u9wj.onrender.com']
     : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   credentials: true,
