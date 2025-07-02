@@ -56,6 +56,7 @@ function Homepage() {
     setSearchQuery(query);
   };
 
+  // @ts-ignore TS6133
   const handleCategoryFilter = (category: string) => {
     setSearchQuery(category);
   };
