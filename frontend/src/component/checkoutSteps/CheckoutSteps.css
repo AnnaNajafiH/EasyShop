@@ -1,0 +1,219 @@
+/* Modern Checkout Steps Component */
+.checkout-steps-container {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1rem;
+}
+
+.checkout-steps {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(64, 150, 85, 0.1);
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.checkout-steps::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #409655 0%, #22c55e 100%);
+}
+
+.checkout-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: none !important;
+}
+
+.checkout-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: #e5e7eb;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-step.active:not(:last-child)::after {
+    background: linear-gradient(90deg, #409655 0%, #22c55e 100%);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    background: #e5e7eb;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.step-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Active step styles */
+.checkout-step.active .step-number {
+    background: linear-gradient(135deg, #409655 0%, #22c55e 100%);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(64, 150, 85, 0.3);
+}
+
+.checkout-step.active .step-label {
+    color: #409655;
+    font-weight: 700;
+}
+
+/* Hover effects */
+.checkout-step:hover .step-number {
+    transform: scale(1.05);
+}
+
+.checkout-step.active:hover .step-number {
+    transform: scale(1.15);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .checkout-steps-container {
+        padding: 0 0.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .checkout-steps {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .checkout-step {
+        gap: 0.25rem;
+    }
+    
+    .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+    }
+    
+    .step-label {
+        font-size: 0.75rem;
+    }
+    
+    .checkout-step:not(:last-child)::after {
+        top: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-steps {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .step-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+    
+    .checkout-step:not(:last-child)::after {
+        top: 14px;
+    }
+}
+
+/* Dark Mode Support */
+.dark .checkout-steps {
+    background: #1e293b;
+    border-color: rgba(64, 150, 85, 0.2);
+}
+
+.dark .checkout-steps::before {
+    background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+}
+
+.dark .checkout-step:not(:last-child)::after {
+    background: #475569;
+}
+
+.dark .checkout-step.active:not(:last-child)::after {
+    background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+}
+
+.dark .step-number {
+    background: #475569;
+    color: #94a3b8;
+}
+
+.dark .step-label {
+    color: #94a3b8;
+}
+
+.dark .checkout-step.active .step-number {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    color: white;
+}
+
+.dark .checkout-step.active .step-label {
+    color: #22c55e;
+}
+
+/* Smooth animations */
+.checkout-step,
+.step-number,
+.step-label {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced accessibility */
+.checkout-step:focus-visible {
+    outline: 2px solid #409655;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Animation for step completion */
+@keyframes stepComplete {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.checkout-step.active .step-number {
+    animation: stepComplete 0.6s ease-out;
+}

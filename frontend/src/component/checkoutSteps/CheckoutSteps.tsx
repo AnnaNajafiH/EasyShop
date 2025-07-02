@@ -1,4 +1,5 @@
 import { Col, Row } from "react-bootstrap";
+import './CheckoutSteps.css';
 
 export default function CheckoutSteps(props: { 
     step1?: boolean; 
@@ -7,12 +8,26 @@ export default function CheckoutSteps(props: {
     step4?: boolean; 
 }) {
     return (
-        <Row className="checkout-steps">    
-            <Col className={props.step1 ? 'active' : ''}>Sign-In</Col>
-            <Col className={props.step2 ? 'active' : ''}>Shipping</Col>
-            <Col className={props.step3 ? 'active' : ''}>Payment</Col>
-            <Col className={props.step4 ? 'active' : ''}>Place Order</Col>
-        </Row>
+        <div className="checkout-steps-container">
+            <Row className="checkout-steps">    
+                <Col className={`checkout-step ${props.step1 ? 'active' : ''}`}>
+                    <div className="step-number">1</div>
+                    <span className="step-label">Sign-In</span>
+                </Col>
+                <Col className={`checkout-step ${props.step2 ? 'active' : ''}`}>
+                    <div className="step-number">2</div>
+                    <span className="step-label">Shipping</span>
+                </Col>
+                <Col className={`checkout-step ${props.step3 ? 'active' : ''}`}>
+                    <div className="step-number">3</div>
+                    <span className="step-label">Payment</span>
+                </Col>
+                <Col className={`checkout-step ${props.step4 ? 'active' : ''}`}>
+                    <div className="step-number">4</div>
+                    <span className="step-label">Place Order</span>
+                </Col>
+            </Row>
+        </div>
     );
 }
 
