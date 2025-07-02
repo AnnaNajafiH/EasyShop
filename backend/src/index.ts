@@ -86,23 +86,34 @@ app.use('/api/seed', seedRouter);
 app.use('/api/key', keyRouter);
 
 // Serve static files from React build (for production)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../../frontend/dist')));
-  
-  // Handle React Router routes
-  app.get('*', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
+// Removed for Render deployment - frontend served separately
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    success: true,
+    message: 'E-commerce API is running!',
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development',
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      health: '/health',
+      products: '/api/products',
+      users: '/api/users',
+      orders: '/api/orders',
+      seed: '/api/seed',
+      key: '/api/key'
+    }
   });
-} else {
-  app.get('/', (req: Request, res: Response) => {
-    res.json({
-      success: true,
-      message: 'E-commerce API is running!',
-      version: '1.0.0',
-      environment: process.env.NODE_ENV || 'development'
-    });
+});
+
+// Health check endpoint for Render
+app.get('/health', (req: Request, res: Response) => {
+  res.json({
+    success: true,
+    message: 'Server is healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
   });
-}
+});
 
 // 404 handler for unknown routes
 app.use(notFoundHandler);
