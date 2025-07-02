@@ -8,14 +8,14 @@ import { useGetProductsQuery } from "../../hooks/productHooks";
 import { getError } from "../../utils/utils";
 import { ApiError } from "../../types/ApiError";
 import "./HomePage.css";
-import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useMemo, useContext } from "react";
+import { Store } from "../../Store";
 import HomeSearchBox from "../../component/HomeSearchBox/HomeSearchBox";
 
 function Homepage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+  const { state: { mode } } = useContext(Store);
 
   // Debug logging
   console.log("Homepage Debug:", { 
@@ -191,7 +191,7 @@ function Homepage() {
       </section>
 
       {/* Search Section */}
-      <section className="search-section py-4 bg-light">
+      <section className={`search-section py-4 ${mode === 'light' ? 'bg-light' : ''}`}>
         <Container>
           <Row className="justify-content-center">
             <Col lg={8} className="text-center">

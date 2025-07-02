@@ -208,3 +208,31 @@ a {
     font-size: 0.9rem;
   }
 }
+
+/* Dark Mode Styles for Product Items */
+[data-bs-theme="dark"] .product-item {
+  background: #343a40;
+  border: 1px solid #495057;
+}
+
+[data-bs-theme="dark"] .product-title {
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .product-title:hover {
+  color: var(--brand) !important;
+}
+
+[data-bs-theme="dark"] .product-item .card-body {
+  background: #343a40;
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .product-item .rating {
+  color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .product-item:hover {
+  background: #495057;
+  border-color: #6c757d;
+}

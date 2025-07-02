@@ -157,7 +157,7 @@
 
 /* Search Section */
 .search-section {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brandHover) 100%);
+  background: linear-gradient(135deg, var(--green) 0%, #1a3636 100%);
 }
 
 .search-title {
@@ -310,6 +310,116 @@
   padding: 15px 25px;
   font-weight: 600;
   border: none;
+}
+
+/* Dark Mode Styles */
+[data-bs-theme="dark"] .hero-title {
+  background: linear-gradient(45deg, #ffffff, #f8f9fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-bs-theme="dark"] .hero-subtitle {
+  color: #e9ecef;
+}
+
+[data-bs-theme="dark"] .features-section {
+  background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+}
+
+[data-bs-theme="dark"] .feature-card {
+  background: #343a40;
+  border: 1px solid #495057;
+  color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .feature-card h4 {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .feature-card p {
+  color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .search-section {
+  background: linear-gradient(135deg, #495057 0%, #6c757d 100%) !important;
+}
+
+[data-bs-theme="dark"] .search-title {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+[data-bs-theme="dark"] .enhanced-search-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-bs-theme="dark"] .enhanced-search-box .form-control {
+  background: #343a40 !important;
+  border: 1px solid #495057 !important;
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .enhanced-search-box .form-control::placeholder {
+  color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .enhanced-search-box .form-control:focus {
+  background: #343a40 !important;
+  border-color: var(--brand) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 20, 60, 0.25) !important;
+}
+
+[data-bs-theme="dark"] .section-title {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .section-subtitle {
+  color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .featured-section {
+  background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+}
+
+[data-bs-theme="dark"] .products-section {
+  background: #212529;
+}
+
+[data-bs-theme="dark"] .no-results {
+  background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+}
+
+[data-bs-theme="dark"] .no-results h4 {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .no-results p {
+  color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .newsletter-section {
+  background: linear-gradient(135deg, #000000 0%, #212529 100%) !important;
+}
+
+/* Dark mode badge adjustments */
+[data-bs-theme="dark"] .section-badge {
+  background: var(--brand) !important;
+  color: white;
+}
+
+/* Dark mode carousel adjustments */
+[data-bs-theme="dark"] .carousel-overlay {
+  background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+}
+
+/* Ensure proper contrast for dark mode */
+[data-bs-theme="dark"] .caption-content {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Responsive Design */
