@@ -78,13 +78,6 @@ a {
   margin-bottom: 1rem;
 }
 
-.product-price::before {
-  content: '$';
-  font-size: 1rem;
-  vertical-align: top;
-  margin-right: 2px;
-}
-
 .product-item .rating {
   margin-bottom: 1.5rem;
   display: flex;

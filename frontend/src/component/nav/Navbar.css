@@ -1,5 +1,14 @@
 .navbar-custom {
-  padding: 2rem;
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  padding: 0 !important;
+  margin-right: 2rem !important;
+}
+
+.navbar-brand:hover {
+  text-decoration: none;
 }
 
 

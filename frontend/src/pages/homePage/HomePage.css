@@ -157,7 +157,7 @@
 
 /* Search Section */
 .search-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brandHover) 100%);
 }
 
 .search-title {
@@ -179,21 +179,32 @@
   margin: 0;
 }
 
-.enhanced-search-box input {
+.enhanced-search-box .form-control {
   border-radius: 50px;
   border: none;
   padding: 15px 25px;
   font-size: 1.1rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background: white;
 }
 
-.enhanced-search-box button {
+.enhanced-search-box .btn {
   border-radius: 50px;
   padding: 15px 25px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
+  background: var(--green);
+  border: none;
+  color: white;
+}
+
+.enhanced-search-box .btn:hover {
+  background: var(--green);
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(47, 79, 79, 0.4);
 }
 
 /* Section Headers */
@@ -253,6 +264,28 @@
   justify-content: center;
   align-items: center;
   min-height: 200px;
+}
+
+/* No Results Section */
+.no-results {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  margin: 2rem 0;
+}
+
+.no-results i {
+  color: var(--gray);
+}
+
+.no-results h4 {
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
 /* Newsletter Section */

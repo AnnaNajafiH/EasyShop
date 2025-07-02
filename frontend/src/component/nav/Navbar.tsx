@@ -3,6 +3,7 @@ import { useEffect, useContext } from 'react';
 import { Store } from '../../Store';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
+import Logo from '../logo/Logo';
 import './Navbar.css';
 
 function Navbar() {
@@ -35,7 +36,7 @@ function Navbar() {
       <Container>
         <LinkContainer to="/" className="header-link">
           <BootstrapNavbar.Brand>
-            EasyShop
+            <Logo variant="white" size="medium" />
           </BootstrapNavbar.Brand>
         </LinkContainer>
 

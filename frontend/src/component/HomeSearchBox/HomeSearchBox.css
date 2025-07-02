@@ -1,0 +1,52 @@
+/* Home Search Box Styles */
+.search-input {
+  border-radius: 50px 0 0 50px !important;
+  border: none !important;
+  padding: 15px 25px !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+  background: white !important;
+}
+
+.search-input:focus {
+  border: none !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
+}
+
+.clear-btn {
+  border-radius: 0 !important;
+  padding: 15px 15px !important;
+  background: white !important;
+  border: none !important;
+  color: var(--gray) !important;
+  transition: all 0.3s ease;
+}
+
+.clear-btn:hover {
+  background: #f8f9fa !important;
+  color: var(--brand) !important;
+}
+
+.search-btn {
+  border-radius: 0 50px 50px 0 !important;
+  padding: 15px 25px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: var(--green) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.search-btn:hover {
+  background: var(--green) !important;
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(47, 79, 79, 0.4);
+}
+
+.search-btn:focus {
+  background: var(--green) !important;
+  box-shadow: 0 0 0 0.2rem rgba(47, 79, 79, 0.25);
+}

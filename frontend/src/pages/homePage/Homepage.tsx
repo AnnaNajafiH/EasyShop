@@ -8,13 +8,37 @@ import { useGetProductsQuery } from "../../hooks/productHooks";
 import { getError } from "../../utils/utils";
 import { ApiError } from "../../types/ApiError";
 import "./HomePage.css";
-import SearchBox from "../../component/SearchBox/SearchBox";
+import { useState, useMemo } from "react";
+import HomeSearchBox from "../../component/HomeSearchBox/HomeSearchBox";
 
 function Homepage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const featuredProducts = products?.slice(0, 4) || [];
-  const newArrivals = products?.slice(4, 8) || [];
+  // Debug logging
+  console.log("Homepage Debug:", { 
+    products: products?.length || 0, 
+    isLoading, 
+    error: error?.message 
+  });
+
+  // Filter products based on search query
+  const filteredProducts = useMemo(() => {
+    if (!products || !searchQuery.trim()) return products || [];
+    
+    return products.filter(product =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.brand.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [products, searchQuery]);
+
+  const featuredProducts = filteredProducts.slice(0, 4) || [];
+  const displayProducts = searchQuery.trim() ? filteredProducts : products || [];
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
 
   return (
     <>
@@ -128,15 +152,15 @@ function Homepage() {
             <Col lg={8} className="text-center">
               <h2 className="search-title mb-4">Find Your Perfect Piece</h2>
               <div className="enhanced-search-box">
-                <SearchBox />
+                <HomeSearchBox onSearch={handleSearch} />
               </div>
             </Col>
           </Row>
         </Container>
       </section>
 
-      {/* Featured Products Section */}
-      {!isLoading && !error && featuredProducts.length > 0 && (
+      {/* Featured Products Section - only show when not searching */}
+      {!isLoading && !error && !searchQuery.trim() && featuredProducts.length > 0 && (
         <section className="featured-section py-5">
           <Container>
             <div className="section-header text-center mb-5">
@@ -155,12 +179,22 @@ function Homepage() {
         </section>
       )}
 
-      {/* All Products Section */}
+      {/* Products Section */}
       <section className="products-section py-5">
         <Container>
           <div className="section-header text-center mb-5">
-            <h2 className="section-title">Our Complete Collection</h2>
-            <p className="section-subtitle">Browse our entire range of premium home décor</p>
+            <h2 className="section-title">
+              {searchQuery.trim() 
+                ? `Search Results for "${searchQuery}"` 
+                : "Our Complete Collection"
+              }
+            </h2>
+            <p className="section-subtitle">
+              {searchQuery.trim() 
+                ? `Found ${displayProducts.length} product${displayProducts.length !== 1 ? 's' : ''}`
+                : "Browse our entire range of premium home décor"
+              }
+            </p>
           </div>
           
           {isLoading ? (
@@ -171,9 +205,18 @@ function Homepage() {
             <MessageBox variant="danger">
               {getError(error as unknown as ApiError)}
             </MessageBox>
+          ) : displayProducts.length === 0 && searchQuery.trim() ? (
+            <div className="no-results text-center py-5">
+              <i className="fas fa-search fa-3x text-muted mb-3"></i>
+              <h4>No products found</h4>
+              <p className="text-muted">Try searching with different keywords or browse our complete collection.</p>
+              <Button variant="primary" onClick={() => handleSearch('')}>
+                Clear Search
+              </Button>
+            </div>
           ) : (
             <Row>
-              {products!.map((product: Product) => (
+              {displayProducts.map((product: Product) => (
                 <Col key={product.slug} sm={6} md={4} lg={3} className="mb-4">
                   <ProductItem product={product} />
                 </Col>
@@ -184,7 +227,7 @@ function Homepage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="newsletter-section py-5 bg-dark text-white">
+      {/* <section className="newsletter-section py-5 bg-dark text-white">
         <Container>
           <Row className="align-items-center">
             <Col lg={6}>
@@ -205,7 +248,7 @@ function Homepage() {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
     </>
   );
 }

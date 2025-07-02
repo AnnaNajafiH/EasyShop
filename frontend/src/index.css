@@ -111,6 +111,40 @@ border:1px white solid;
   color: #000000;
 }
 
+/* Custom Button Styles to match brand color */
+.btn-primary {
+  background-color: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: white !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--brandHover) !important;
+  border-color: var(--brandHover) !important;
+  color: white !important;
+}
+
+.btn-danger {
+  background-color: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: white !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background-color: var(--brandHover) !important;
+  border-color: var(--brandHover) !important;
+  color: white !important;
+}
+
+/* Badge primary color to match brand */
+.badge.bg-primary {
+  background-color: var(--brand) !important;
+}
+
 
 
 
