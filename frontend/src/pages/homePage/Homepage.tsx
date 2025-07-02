@@ -9,11 +9,13 @@ import { getError } from "../../utils/utils";
 import { ApiError } from "../../types/ApiError";
 import "./HomePage.css";
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import HomeSearchBox from "../../component/HomeSearchBox/HomeSearchBox";
 
 function Homepage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   // Debug logging
   console.log("Homepage Debug:", { 
@@ -40,6 +42,34 @@ function Homepage() {
     setSearchQuery(query);
   };
 
+  // Hero button handlers
+  const handleShopCollection = () => {
+    // Scroll to products section on the same page
+    const productsSection = document.querySelector('.products-section');
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleShopNow = () => {
+    // Clear search and scroll to products section to show all products
+    setSearchQuery('');
+    setTimeout(() => {
+      const productsSection = document.querySelector('.products-section');
+      if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleLearnMore = () => {
+    // Scroll to features section to show more information about quality
+    const featuresSection = document.querySelector('.features-section');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -63,7 +93,12 @@ function Homepage() {
               <div className="caption-content">
                 <h1 className="hero-title">Transform Your Space</h1>
                 <p className="hero-subtitle">Discover our curated collection of premium vases and home décor</p>
-                <Button variant="light" size="lg" className="hero-cta">
+                <Button 
+                  variant="light" 
+                  size="lg" 
+                  className="hero-cta"
+                  onClick={handleShopCollection}
+                >
                   Shop Collection
                 </Button>
               </div>
@@ -82,7 +117,12 @@ function Homepage() {
               <div className="caption-content">
                 <h1 className="hero-title">Exclusive Deals</h1>
                 <p className="hero-subtitle">Up to 40% off on selected premium collections</p>
-                <Button variant="warning" size="lg" className="hero-cta">
+                <Button 
+                  variant="warning" 
+                  size="lg" 
+                  className="hero-cta"
+                  onClick={handleShopNow}
+                >
                   Shop Now
                 </Button>
               </div>
@@ -101,7 +141,12 @@ function Homepage() {
               <div className="caption-content">
                 <h1 className="hero-title">Crafted with Care</h1>
                 <p className="hero-subtitle">Each piece is carefully selected for quality and design excellence</p>
-                <Button variant="success" size="lg" className="hero-cta">
+                <Button 
+                  variant="success" 
+                  size="lg" 
+                  className="hero-cta"
+                  onClick={handleLearnMore}
+                >
                   Learn More
                 </Button>
               </div>
