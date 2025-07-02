@@ -48,23 +48,11 @@ export const connectDB = async (): Promise<void> => {
 
   } catch (error: any) {
     console.error('❌ Error connecting to MongoDB:', error.message);
-    console.error('💡 Possible solutions:');
+    console.error('💡 Troubleshooting tips:');
     console.error('   1. Check your MONGODB_URI in .env file');
-    console.error('   2. Ensure MongoDB is running (if using local)');
-    console.error('   3. Check your internet connection (if using Atlas)');
-    console.error('   4. Verify Atlas cluster is running and accessible');
-    
-    // Don't exit immediately, try fallback
-    if (process.env.MONGODB_URI && process.env.MONGODB_URI.includes('mongodb.net')) {
-      console.log('🔄 Atlas connection failed, trying local MongoDB...');
-      try {
-        const localConn = await mongoose.connect("mongodb://localhost:27017/EasyShop");
-        console.log(`✅ Connected to local MongoDB: ${localConn.connection.host}`);
-        return;
-      } catch (localError: any) {
-        console.error('❌ Local MongoDB also failed:', localError.message);
-      }
-    }
+    console.error('   2. Ensure MongoDB Docker container is running: docker ps');
+    console.error('   3. Restart MongoDB container: docker restart easyShop');
+    console.error('   4. Check Docker logs: docker logs easyShop');
     
     process.exit(1);
   }
