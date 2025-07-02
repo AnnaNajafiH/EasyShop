@@ -1,25 +1,23 @@
-
-
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Store } from '../../Store';
+import './Footer.css';
 
 function Footer() {
-  const { state: { mode} } = useContext(Store);
+  const { state: { mode } } = useContext(Store);
 
-
-    return (
+  return (
     <div 
-    className=" text-white py-4 mt-6"
-    style={{ backgroundColor: mode === 'light' ? '#2F4F4F' : '#212529' }}
+      className="footer-container text-white py-4 mt-6"
+      style={{ backgroundColor: mode === 'light' ? '#2F4F4F' : '#212529' }}
     >
       <Container>
-        <Row>
+        <Row className="footer-row">
           {/* Column 1: About */}
-          <Col md={4} sm={6} className="mb-3">
-            <h5>About EasyShop</h5>
-            <p>
+          <Col md={4} sm={6} className="footer-column mb-3">
+            <h5 className="footer-heading">About EasyShop</h5>
+            <p className="footer-text">
               EasyShop is your one-stop solution for quality products at
               affordable prices. Shop with confidence and enjoy seamless
               customer service.
@@ -27,26 +25,26 @@ function Footer() {
           </Col>
 
           {/* Column 2: Quick Links */}
-          <Col md={4} sm={6} className="mb-3">
-            <h5>Quick Links</h5>
-            <ul className="list-unstyled">
+          <Col md={4} sm={6} className="footer-column mb-3">
+            <h5 className="footer-heading">Quick Links</h5>
+            <ul className="list-unstyled footer-links">
               <li>
-                <Link to="/about" className="text-white text-decoration-none">
+                <Link to="/about" className="text-white text-decoration-none footer-link">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white text-decoration-none">
+                <Link to="/contact" className="text-white text-decoration-none footer-link">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-white text-decoration-none">
+                <Link to="/faq" className="text-white text-decoration-none footer-link">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-white text-decoration-none">
+                <Link to="/terms" className="text-white text-decoration-none footer-link">
                   Terms of Service
                 </Link>
               </li>
@@ -54,16 +52,16 @@ function Footer() {
           </Col>
 
           {/* Column 3: Contact */}
-          <Col md={4} sm={12} className="mb-3">
-            <h5>Contact Us</h5>
-            <p>
+          <Col md={4} sm={12} className="footer-column mb-3">
+            <h5 className="footer-heading">Contact Us</h5>
+            <p className="footer-text">
               <i className="fas fa-map-marker-alt"></i> 123 EasyShop St., City,
               Country
             </p>
-            <p>
+            <p className="footer-text">
               <i className="fas fa-phone"></i> +123-456-7890
             </p>
-            <p>
+            <p className="footer-text">
               <i className="fas fa-envelope"></i> support@easyshop.com
             </p>
           </Col>
@@ -73,7 +71,7 @@ function Footer() {
 
         <Row className="text-center">
           <Col>
-            <p className="mb-0">
+            <p className="footer-text mb-0">
               &copy; {new Date().getFullYear()} EasyShop. All Rights Reserved.
             </p>
           </Col>

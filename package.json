@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "cd backend && npm install && npm run build && cd ../frontend && npm install && npm run build",
-    "start": "TG_ALLOW_MIXED_ALLOW=true node backend/build/index.js",
+    "start": "node backend/build/index.js",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:deploy": "docker-compose up --build -d",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

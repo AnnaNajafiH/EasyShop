@@ -7,5 +7,8 @@ export type User = {
     isAdmin: boolean;
 }
 
+// UserInfo type alias for consistency (used in some components)
+export type UserInfo = User;
+
 
 
